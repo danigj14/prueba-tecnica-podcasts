@@ -10,6 +10,7 @@ const fetchPodcasts = async (): Promise<Podcast[]> => {
     const json = await response.json();
 
     return json.feed.entry.map((podcastJson: any) => ({
+      id: podcastJson.id.attributes["im:id"],
       name: podcastJson["im:name"].label,
       author: podcastJson["im:artist"].label,
       imgUrl: podcastJson["im:image"][2].label,
@@ -20,7 +21,7 @@ const fetchPodcasts = async (): Promise<Podcast[]> => {
 };
 
 export default function useTop100Podcasts() {
-  const podcastsQuery = useQuery(["podcasts"], fetchPodcasts);
+  const podcastsQuery = useQuery<Podcast[]>(["podcasts"], fetchPodcasts);
 
   return podcastsQuery;
 }

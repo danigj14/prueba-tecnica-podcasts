@@ -1,5 +1,6 @@
 export interface Podcast {
-  name: String;
-  author: String;
-  //imgUrl: String;
+  id: string;
+  name: string;
+  author: string;
+  imgUrl: string;
 }

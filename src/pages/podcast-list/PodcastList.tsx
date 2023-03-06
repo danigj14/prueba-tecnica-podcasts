@@ -1,6 +1,11 @@
+import useTop100Podcasts from "@/hooks/useTop100Podcasts";
 import PodcastCard from "./PodcastCard";
 
 export default function PodcastList() {
+  const podcastsQuery = useTop100Podcasts();
+
+  if (podcastsQuery.isSuccess) console.log(podcastsQuery.data);
+
   return (
     <>
       <div className="flex justify-end items-center gap-2">
@@ -12,13 +17,13 @@ export default function PodcastList() {
           placeholder="Filter podcasts..."
         />
       </div>
-      <div className="mt-6 grid grid-cols-4 gap-4">
-        <PodcastCard />
-        <PodcastCard />
-        <PodcastCard />
-        <PodcastCard />
-        <PodcastCard />
-      </div>
+      {podcastsQuery.isSuccess && (
+        <div className="mt-6 grid grid-cols-4 gap-4">
+          {podcastsQuery.data.map((podcast) => (
+            <PodcastCard key={podcast.id} podcast={podcast} />
+          ))}
+        </div>
+      )}
     </>
   );
 }
