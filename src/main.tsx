@@ -15,6 +15,10 @@ const router = createBrowserRouter([
         path: "",
         element: <PodcastList />,
       },
+      {
+        path: "podcast/:podcastId",
+        element: <div>Podcast Page</div>
+      }
     ],
   },
 ]);
