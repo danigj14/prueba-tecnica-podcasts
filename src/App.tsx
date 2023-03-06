@@ -7,7 +7,7 @@ export default function App() {
   const fetchingQueries = useIsFetching();
 
   return (
-    <div className="w-screen h-screen bg-gray-100">
+    <div className="min-w-screen min-h-screen bg-gray-100">
       <header className="container mx-auto p-3 flex justify-between items-center border-b border-gray-300">
         <nav>
           <Link to="/" className="text-lg text-blue-600">

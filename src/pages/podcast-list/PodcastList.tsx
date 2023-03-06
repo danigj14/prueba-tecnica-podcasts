@@ -18,7 +18,7 @@ export default function PodcastList() {
         />
       </div>
       {podcastsQuery.isSuccess && (
-        <div className="mt-6 grid grid-cols-4 gap-4">
+        <div className="mt-6 grid grid-cols-4 gap-x-4 gap-y-10">
           {podcastsQuery.data.map((podcast) => (
             <PodcastCard key={podcast.id} podcast={podcast} />
           ))}
