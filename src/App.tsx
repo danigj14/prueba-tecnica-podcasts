@@ -14,7 +14,9 @@ export default function App() {
             Podcaster
           </Link>
         </nav>
-        {fetchingQueries > 0 ? <FontAwesomeIcon icon={faSpinner} spin size="lg" /> : null}
+        {fetchingQueries > 0 ? (
+          <FontAwesomeIcon icon={faSpinner} spin size="lg" />
+        ) : null}
       </header>
       <main className="container mx-auto p-3">
         <Outlet />
