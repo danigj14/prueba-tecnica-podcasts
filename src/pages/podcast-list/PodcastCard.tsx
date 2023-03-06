@@ -13,7 +13,7 @@ export default function PodcastCard({ podcast }: PodcastCardProps) {
     >
       <img src={podcast.imgUrl} className="rounded-full -mt-20" />
       <h1 className="font-bold text-lg">{podcast.name}</h1>
-      <p className="font-bold text-sm text-gray-600">
+      <p className="font-bold text-sm text-gray-700">
         Author: {podcast.author}
       </p>
     </Link>
