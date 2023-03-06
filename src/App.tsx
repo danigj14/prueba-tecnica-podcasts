@@ -13,7 +13,7 @@ export default function App() {
         </nav>
         <FontAwesomeIcon icon={faSpinner} spin size="lg" />
       </header>
-      <main>
+      <main className="container mx-auto p-3">
         <Outlet />
       </main>
     </div>
