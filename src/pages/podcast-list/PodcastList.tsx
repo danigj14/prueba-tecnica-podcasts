@@ -4,8 +4,6 @@ import PodcastCard from "./PodcastCard";
 export default function PodcastList() {
   const podcastsQuery = useTop100Podcasts();
 
-  if (podcastsQuery.isSuccess) console.log(podcastsQuery.data);
-
   return (
     <>
       <div className="flex justify-end items-center gap-2">
