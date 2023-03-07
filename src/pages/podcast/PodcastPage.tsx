@@ -10,7 +10,7 @@ export default function PodcastPage() {
 
   return (
     <div className="flex gap-10 items-start">
-      <PodcastDetails podcastId={podcastId!} />
+      <PodcastDetails podcastId={podcastId!} linksEnabled={false} />
       <PodcastEpisodeList podcastId={podcastId!} />
     </div>
   );

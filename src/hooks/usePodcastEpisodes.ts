@@ -11,7 +11,7 @@ const fetchPodcastEpisodes = async (podcastId: string): Promise<Episode[]> => {
 
     //The returned json array contains the podcast object itself as the first element, and the episodes come next, so we must strip the first item from the array
     return json.results.slice(1).map((episode: any) => ({
-      id: episode.trackId,
+      id: episode.trackId.toString(),
       name: episode.trackName,
       date: episode.releaseDate,
       duration: episode.trackTimeMillis,
