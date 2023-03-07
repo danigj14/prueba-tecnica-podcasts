@@ -14,7 +14,10 @@ export default function PodcastDetails({ podcast }: PodcastDetailsProps) {
       </div>
       <div className="py-3 border-t border-gray-300 text-gray-900">
         <h2 className="font-bold">Description:</h2>
-        <p className="text-sm italic">{podcast.description}</p>
+        <p
+          className="text-sm italic"
+          dangerouslySetInnerHTML={{ __html: podcast.description }}
+        />
       </div>
     </div>
   );

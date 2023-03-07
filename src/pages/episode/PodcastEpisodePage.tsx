@@ -1,3 +1,5 @@
+import PodcastDetails from "@/components/PodcastDetails";
+
 export default function PodcastEpisodePage() {
-  return <div></div>;
+  return <div className="flex gap-10 items-start"></div>;
 }

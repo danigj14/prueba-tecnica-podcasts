@@ -25,7 +25,7 @@ const fetchPodcastEpisodes = async (podcastId: string): Promise<Episode[]> => {
 export default function usePodcastEpisodes(
   podcastId: string
 ): UseQueryResult<Episode[]> {
-  return useQuery(["podcast", podcastId], () =>
+  return useQuery(["podcast", podcastId, "episodes"], () =>
     fetchPodcastEpisodes(podcastId)
   );
 }

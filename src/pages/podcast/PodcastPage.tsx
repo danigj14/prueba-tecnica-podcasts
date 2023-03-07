@@ -1,11 +1,12 @@
+import usePodcastDetails from "@/hooks/usePodcastDetails";
 import usePodcastEpisodes from "@/hooks/usePodcastEpisodes";
 import useTop100Podcasts from "@/hooks/useTop100Podcasts";
 import { useParams } from "react-router-dom";
-import PodcastDetails from "./PodcastDetails";
+import PodcastDetails from "../../components/PodcastDetails";
 import PodcastEpisodeList from "./PodcastEpisodeList";
 
 export default function PodcastPage() {
-  const { podcastId } = useParams();
+  const { podcastId } = useParams<{ podcastId: string }>();
 
   /**
    * Since the endpoint specified in the documentation to retrieve a
@@ -14,19 +15,14 @@ export default function PodcastPage() {
    * and filtering the results by podcast ID to get the relevant podcast object.
    **/
   const podcastEpisodesQuery = usePodcastEpisodes(podcastId || "");
-  const podcastsQuery = useTop100Podcasts();
+  const podcastDetailsQuery = usePodcastDetails(podcastId || "");
 
-  if (!podcastEpisodesQuery.isSuccess || !podcastsQuery.isSuccess) return <></>;
-
-  const podcast = podcastsQuery.data.find(
-    (podcast) => podcast.id === podcastId
-  );
-
-  if (!podcast) return <></>;
+  if (!podcastEpisodesQuery.isSuccess || !podcastDetailsQuery.isSuccess)
+    return <></>;
 
   return (
     <div className="flex gap-10 items-start">
-      <PodcastDetails podcast={podcast} />
+      <PodcastDetails podcast={podcastDetailsQuery.data} />
       <PodcastEpisodeList episodes={podcastEpisodesQuery.data} />
     </div>
   );
