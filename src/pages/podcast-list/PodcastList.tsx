@@ -7,7 +7,6 @@ import PodcastCard from "./PodcastCard";
 export default function PodcastList() {
   const podcastsQuery = useTop100Podcasts();
   const [filter, setFilter] = useState<string>("");
-
   const debouncedFilter = useDebounce(filter, 150);
 
   if (!podcastsQuery.isSuccess) return <></>;

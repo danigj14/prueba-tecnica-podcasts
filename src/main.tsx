@@ -23,8 +23,8 @@ const router = createBrowserRouter([
       },
       {
         path: "podcast/:podcastId/episode/:episodeId",
-        element: <PodcastEpisodePage />
-      }
+        element: <PodcastEpisodePage />,
+      },
     ],
   },
 ]);
