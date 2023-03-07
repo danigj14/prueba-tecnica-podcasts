@@ -1,4 +1,5 @@
 import Input from "@/components/Input";
+import useDebounce from "@/hooks/useDebounce";
 import useTop100Podcasts from "@/hooks/useTop100Podcasts";
 import { useState } from "react";
 import PodcastCard from "./PodcastCard";
@@ -7,12 +8,14 @@ export default function PodcastList() {
   const podcastsQuery = useTop100Podcasts();
   const [filter, setFilter] = useState<string>("");
 
+  const debouncedFilter = useDebounce(filter, 150);
+
   if (!podcastsQuery.isSuccess) return <></>;
 
   const filteredPodcasts = podcastsQuery.data.filter(
     (podcast) =>
-      podcast.name.toLowerCase().includes(filter.toLowerCase()) ||
-      podcast.author.toLowerCase().includes(filter.toLowerCase())
+      podcast.name.toLowerCase().includes(debouncedFilter.toLowerCase()) ||
+      podcast.author.toLowerCase().includes(debouncedFilter.toLowerCase())
   );
 
   return (
