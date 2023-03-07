@@ -13,6 +13,7 @@ const fetchPodcasts = async (): Promise<Podcast[]> => {
       id: podcastJson.id.attributes["im:id"],
       name: podcastJson["im:name"].label,
       author: podcastJson["im:artist"].label,
+      description: podcastJson["summary"].label,
       imgUrl: podcastJson["im:image"][2].label,
     }));
   }
