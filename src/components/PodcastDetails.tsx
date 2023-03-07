@@ -8,7 +8,7 @@ interface PodcastDetailsProps {
 export default function PodcastDetails({ podcastId }: PodcastDetailsProps) {
   const podcastDetailsQuery = usePodcastDetails(podcastId);
 
-  if(!podcastDetailsQuery.isSuccess) return <></>;
+  if (!podcastDetailsQuery.isSuccess) return <></>;
 
   return (
     <div className="w-1/4 p-4 shadow bg-gray-50">
@@ -21,7 +21,9 @@ export default function PodcastDetails({ podcastId }: PodcastDetailsProps) {
         <h2 className="font-bold">Description:</h2>
         <p
           className="text-sm italic"
-          dangerouslySetInnerHTML={{ __html: podcastDetailsQuery.data.description }}
+          dangerouslySetInnerHTML={{
+            __html: podcastDetailsQuery.data.description,
+          }}
         />
       </div>
     </div>

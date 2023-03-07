@@ -10,7 +10,7 @@ interface PodcastEpisodeListProps {
 export default function PodcastEpisodeList({
   podcastId,
 }: PodcastEpisodeListProps) {
-  const podcastEpisodesQuery = usePodcastEpisodes(podcastId || "");
+  const podcastEpisodesQuery = usePodcastEpisodes(podcastId!);
 
   if (!podcastEpisodesQuery.isSuccess) return <></>;
 
