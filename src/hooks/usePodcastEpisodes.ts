@@ -3,7 +3,7 @@ import { useQuery, UseQueryResult } from "@tanstack/react-query";
 
 const fetchPodcastEpisodes = async (podcastId: string): Promise<Episode[]> => {
   const response = await fetch(
-    `https://cors-anywhere.herokuapp.com/https://itunes.apple.com/lookup?id=${podcastId}&entity=podcastEpisode`
+    `https://cors-anywhere.herokuapp.com/https://itunes.apple.com/lookup?id=${podcastId}&entity=podcastEpisode&limit=200`
   );
 
   if (response.ok) {
