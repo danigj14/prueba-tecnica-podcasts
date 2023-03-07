@@ -22,7 +22,7 @@ const fetchPodcastDetails = async (podcastId: string): Promise<Podcast> => {
     id: podcastId,
     name: podcastDetails.results[0].trackName,
     author: podcastDetails.results[0].artistName,
-    imgUrl: podcastDetails.results[0].artworkUrl100,
+    imgUrl: podcastDetails.results[0].artworkUrl600,
     description: parsedFeed.rss.channel.description,
   };
 };

@@ -1,18 +1,23 @@
+import usePodcastEpisodes from "@/hooks/usePodcastEpisodes";
 import { Episode } from "@/types";
 import { formatDate, formatDuration } from "@/util/util";
 import { Link, useParams } from "react-router-dom";
 
 interface PodcastEpisodeListProps {
-  episodes: Episode[];
+  podcastId: string;
 }
 
 export default function PodcastEpisodeList({
-  episodes,
+  podcastId,
 }: PodcastEpisodeListProps) {
+  const podcastEpisodesQuery = usePodcastEpisodes(podcastId || "");
+
+  if (!podcastEpisodesQuery.isSuccess) return <></>;
+
   return (
     <div className="flex-grow gap-4">
       <h2 className="p-4 bg-gray-50 shadow text-xl font-bold">
-        Episodes: {episodes.length}
+        Episodes: {podcastEpisodesQuery.data.length}
       </h2>
       <div className="p-6 bg-gray-50 shadow mt-6">
         <table className="table-auto border-collapse border-spacing-4 w-full">
@@ -30,7 +35,7 @@ export default function PodcastEpisodeList({
             </tr>
           </thead>
           <tbody>
-            {episodes.map((episode) => (
+            {podcastEpisodesQuery.data.map((episode) => (
               <EpisodeListItem key={episode.id} episode={episode} />
             ))}
           </tbody>
