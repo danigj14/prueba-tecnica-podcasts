@@ -7,6 +7,7 @@ import "./index.css";
 import PodcastEpisodePage from "./pages/episode/PodcastEpisodePage";
 import PodcastList from "./pages/podcast-list/PodcastList";
 import PodcastPage from "./pages/podcast/PodcastPage";
+import { hoursToMillis } from "./util/util";
 
 const router = createBrowserRouter([
   {
@@ -29,7 +30,14 @@ const router = createBrowserRouter([
   },
 ]);
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: hoursToMillis(24),
+      cacheTime: hoursToMillis(48),
+    },
+  },
+});
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>

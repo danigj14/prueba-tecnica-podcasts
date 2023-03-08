@@ -15,3 +15,5 @@ export function formatDuration(durationMillis: number): string {
 
   return `${formattedMinutes}:${formattedSeconds}`;
 }
+
+export const hoursToMillis = (hours: number): number => hours * 60 * 60 * 1000;
