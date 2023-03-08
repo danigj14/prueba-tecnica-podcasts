@@ -1,5 +1,6 @@
 import { Podcast } from "@/types";
-import { useQuery, UseQueryResult } from "@tanstack/react-query";
+import { UseQueryResult } from "@tanstack/react-query";
+import useCachedQuery from "./useCachedQuery";
 
 const fetchPodcasts = async (): Promise<Podcast[]> => {
   const response = await fetch(
@@ -22,7 +23,7 @@ const fetchPodcasts = async (): Promise<Podcast[]> => {
 };
 
 export default function useTop100Podcasts(): UseQueryResult<Podcast[]> {
-  const podcastsQuery = useQuery<Podcast[]>(["podcasts"], fetchPodcasts);
+  const podcastsQuery = useCachedQuery<Podcast[]>(["podcasts"], fetchPodcasts);
 
   return podcastsQuery;
 }

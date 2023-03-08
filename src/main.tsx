@@ -7,7 +7,7 @@ import "./index.css";
 import PodcastEpisodePage from "./pages/episode/PodcastEpisodePage";
 import PodcastList from "./pages/podcast-list/PodcastList";
 import PodcastPage from "./pages/podcast/PodcastPage";
-import { hoursToMillis } from "./util/util";
+import { hoursToMillis } from "./utils/utils";
 
 const router = createBrowserRouter([
   {
@@ -33,8 +33,7 @@ const router = createBrowserRouter([
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: hoursToMillis(24),
-      cacheTime: hoursToMillis(48),
+      staleTime: 20 * 60 * 1000,
     },
   },
 });

@@ -1,6 +1,7 @@
 import { Podcast } from "@/types";
-import { useQuery, UseQueryResult } from "@tanstack/react-query";
+import { UseQueryResult } from "@tanstack/react-query";
 import { XMLParser } from "fast-xml-parser";
+import useCachedQuery from "./useCachedQuery";
 
 const fetchPodcastDetails = async (podcastId: string): Promise<Podcast> => {
   const itunesResponse = await fetch(
@@ -30,5 +31,7 @@ const fetchPodcastDetails = async (podcastId: string): Promise<Podcast> => {
 export default function usePodcastDetails(
   podcastId: string
 ): UseQueryResult<Podcast> {
-  return useQuery(["podcast", podcastId], () => fetchPodcastDetails(podcastId));
+  return useCachedQuery<Podcast>(["podcast", podcastId], () =>
+    fetchPodcastDetails(podcastId)
+  );
 }

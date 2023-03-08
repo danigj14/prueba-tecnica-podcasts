@@ -1,6 +1,6 @@
 import usePodcastEpisodes from "@/hooks/usePodcastEpisodes";
 import { Episode } from "@/types";
-import { formatDate, formatDuration } from "@/util/util";
+import { formatDate, formatDuration } from "@/utils/utils";
 import { Link, useParams } from "react-router-dom";
 
 interface PodcastEpisodeListProps {
