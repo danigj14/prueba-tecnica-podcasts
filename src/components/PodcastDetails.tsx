@@ -1,5 +1,4 @@
 import usePodcastDetails from "@/hooks/usePodcastDetails";
-import { Podcast } from "@/types";
 import { Link } from "react-router-dom";
 
 interface PodcastDetailsProps {

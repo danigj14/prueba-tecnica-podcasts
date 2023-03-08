@@ -7,7 +7,6 @@ import "./index.css";
 import PodcastEpisodePage from "./pages/episode/PodcastEpisodePage";
 import PodcastList from "./pages/podcast-list/PodcastList";
 import PodcastPage from "./pages/podcast/PodcastPage";
-import { hoursToMillis } from "./utils/utils";
 
 const router = createBrowserRouter([
   {

@@ -1,6 +1,6 @@
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useIsFetching, useQueryClient } from "@tanstack/react-query";
+import { useIsFetching } from "@tanstack/react-query";
 import { Link, Outlet } from "react-router-dom";
 
 export default function App() {

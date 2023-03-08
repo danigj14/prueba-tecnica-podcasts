@@ -1,5 +1,4 @@
 import usePodcastEpisodes from "@/hooks/usePodcastEpisodes";
-import { useLocation, useNavigate, useNavigation } from "react-router-dom";
 
 interface PodcastEpisodeDetailsProps {
   podcastId: string;

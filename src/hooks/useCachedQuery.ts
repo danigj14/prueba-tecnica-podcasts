@@ -1,5 +1,6 @@
 import { getFromCache, storeInCache } from "@/utils/cache";
-import { QueryFunction, QueryKey, useQuery } from "@tanstack/react-query";
+import { hoursToMillis } from "@/utils/utils";
+import { QueryKey, useQuery } from "@tanstack/react-query";
 
 export default function useCachedQuery<T>(
   queryKey: QueryKey,
@@ -12,7 +13,7 @@ export default function useCachedQuery<T>(
 
     const queryData = await queryFn();
 
-    storeInCache(queryKey.toString(), queryData, 24 * 60 * 60 * 1000);
+    storeInCache(queryKey.toString(), queryData, hoursToMillis(24));
 
     return queryData;
   });
