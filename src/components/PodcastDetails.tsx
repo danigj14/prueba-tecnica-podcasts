@@ -1,5 +1,6 @@
 import usePodcastDetails from "@/hooks/usePodcastDetails";
 import { Link } from "react-router-dom";
+import DOMPurify from "dompurify";
 
 interface PodcastDetailsProps {
   podcastId: string;
@@ -51,7 +52,7 @@ export default function PodcastDetails({
         <p
           className="text-sm italic"
           dangerouslySetInnerHTML={{
-            __html: podcastDetailsQuery.data.description,
+            __html: DOMPurify.sanitize(podcastDetailsQuery.data.description),
           }}
         />
       </div>

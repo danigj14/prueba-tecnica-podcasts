@@ -1,4 +1,5 @@
 import usePodcastEpisodes from "@/hooks/usePodcastEpisodes";
+import DOMPurify from "dompurify";
 
 interface PodcastEpisodeDetailsProps {
   podcastId: string;
@@ -20,7 +21,9 @@ export default function PodcastEpisodeDetails({
       <h1 className="text-2xl font-bold mb-2">{episode!.name}</h1>
       <p
         className="italic"
-        dangerouslySetInnerHTML={{ __html: episode!.description }}
+        dangerouslySetInnerHTML={{
+          __html: DOMPurify.sanitize(episode!.description),
+        }}
       ></p>
       <audio
         controls
