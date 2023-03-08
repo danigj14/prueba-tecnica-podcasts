@@ -6,6 +6,10 @@ Podcaster is an application made to listen to musical podcasts.
 
 The application is built with Vite.js and can be run in Development mode and Production mode.
 
+To avoid CORS problems when fetching data, this application makes use of [cors-anywhere](https://cors-anywhere.herokuapp.com/). Before running the application, it is important that you visit the following url and request temporary access to the demo server:
+
+https://cors-anywhere.herokuapp.com/corsdemo
+
 ### Development Mode
 
 This mode will run the application without minifying and without optimizing the assets. To run the application in Development mode, simply run the following npm command:
